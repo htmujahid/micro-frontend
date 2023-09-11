@@ -1,3 +1,3 @@
-const app = document.getElementById('app');
-
-app.innerHTML = `<h1>Cart</h1>`
+export default function render() {
+  return `<h1>Cart</h1>`
+}

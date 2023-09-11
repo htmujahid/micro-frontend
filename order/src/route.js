@@ -1,13 +1,31 @@
 const { currentUrlPath } = require("./utils/url");
+import cart from './pages/cart';
+import productOrder from './pages/product-order';
+import productPayment from './pages/product-payment';
 
-switch(currentUrlPath()){
-    case "/cart":
-        import('./pages/cart');
-        break;
-    case "/order":
-        import('./pages/order');
-        break;
-    case "/payment":
-        import('./pages/payment');
-        break;
+const routes = [
+    {
+        path: "/cart",
+        component: cart,
+    },
+    {
+        path: "/product-order",
+        component: productOrder,
+    },
+    {
+        path: "/product-payment",
+        component: productPayment,
+    },
+]
+
+export default function init() {
+    for (const route of routes) {
+        if (route.path === currentUrlPath()) {
+            return route.component();
+        }
+    }
 }
+
+const routePaths = routes.map((route) => route.path);
+
+export { routePaths };

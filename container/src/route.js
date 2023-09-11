@@ -1,14 +1,21 @@
 const { currentUrlPath } = require("./utils/url");
+import home from './pages/home';
 
-switch(currentUrlPath()){
-    case "/":
-        import('./pages/home');
-        break;
+const routes = [
+    {
+        path: "/",
+        component: home,
+    },
+]
+
+export default function init() {
+    for (const route of routes) {
+        if (route.path === currentUrlPath()) {
+            return route.component();
+        }
+    }
 }
 
-setTimeout(() => {
-    const app = document.querySelector('#app');
-    if (app.innerHTML === '') {
-        import('./pages/not-found');
-    }
-}, 100);
+const routePaths = routes.map((route) => route.path);
+
+export { routePaths };
