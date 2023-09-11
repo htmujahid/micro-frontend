@@ -1,0 +1,32 @@
+{
+  "name": "container",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "install": "concurrently \"npm run install:container\" \"npm run install:order\" \"npm run install:customer\" \"npm run install:store\" \"npm run install:content\"",
+    "install:container": "cd container && npm install",
+    "install:customer": "cd customer && npm install",
+    "install:order": "cd order && npm install",
+    "install:store": "cd store && npm install",
+    "install:content": "cd content && npm install",
+    "serve": "concurrently \"npm run serve:container\" \"npm run serve:order\" \"npm run serve:customer\" \"npm run serve:store\" \"npm run serve:content\"",
+    "serve:container": "cd container && npm run serve",
+    "serve:customer": "cd customer && npm run serve",
+    "serve:order": "cd order && npm run serve",
+    "serve:store": "cd store && npm run serve",
+    "serve:content": "cd content && npm run serve",
+    "build": "concurrently \"npm run build:container\" \"npm run build:order\" \"npm run build:customer\" \"npm run build:store\" \"npm run build:content\"",
+    "build:container": "cd container && npm run build",
+    "build:customer": "cd customer && npm run build",
+    "build:order": "cd order && npm run build",
+    "build:store": "cd store && npm run build",
+    "build:content": "cd content && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
