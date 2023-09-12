@@ -1,10 +1,15 @@
 import app, { routePaths } from './route';
 
 function mount(el){
-  const content = app();
+  if (!app()) {
+    return;
+  }
+  app().style && app().style()
+  const content = app()?.default && app().default()
   if (typeof content === 'string') {
     el.innerHTML = content;
   }
+  app().script && app().script()
 }
 
 if (process.env.NODE_ENV === 'development') {

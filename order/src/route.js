@@ -1,7 +1,7 @@
-const { currentUrlPath } = require("./utils/url");
-import cart from './pages/cart';
-import productOrder from './pages/product-order';
-import productPayment from './pages/product-payment';
+import { currentUrlPath } from '../../core/utils';
+import * as cart from './pages/cart';
+import * as productOrder from './pages/product-order';
+import * as productPayment from './pages/product-payment';
 
 const routes = [
     {
@@ -21,7 +21,7 @@ const routes = [
 export default function init() {
     for (const route of routes) {
         if (route.path === currentUrlPath()) {
-            return route.component();
+            return route.component;
         }
     }
 }

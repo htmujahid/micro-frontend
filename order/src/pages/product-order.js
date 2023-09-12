@@ -1,3 +1,5 @@
+import { html } from "../../../core";
+
 export default function render() {
-  return `<h1>Orders</h1>`
+  return html`<h1>Orders</h1>`
 }

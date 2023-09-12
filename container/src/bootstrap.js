@@ -4,7 +4,7 @@ import order from 'order/Order';
 import content from 'content/Content';
 
 import app, { routePaths } from './route';
-import { currentUrlPath } from './utils/url';
+import { currentUrlPath } from '../../core/utils';
 
 import notFound from './pages/not-found';
 
@@ -16,10 +16,15 @@ const apps = [
 ];
 
 function mount(el){
-  const content = app();
+  if (!app()) {
+    return;
+  }
+  app().style && app().style();
+  const content = app().default();
   if (typeof content === 'string') {
     el.innerHTML = content;
   }
+  app().script && app().script();
 }
 
 if (process.env.NODE_ENV === 'development') {

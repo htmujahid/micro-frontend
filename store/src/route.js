@@ -1,6 +1,6 @@
-const { currentUrlPath } = require("./utils/url");
-import products from './pages/products';
-import productInfo from './pages/product-info';
+import { currentUrlPath } from '../../core/utils';
+import * as products from './pages/products';
+import * as productInfo from './pages/product-info';
 
 const routes = [
     {
@@ -16,7 +16,7 @@ const routes = [
 export default function init() {
     for (const route of routes) {
         if (route.path === currentUrlPath()) {
-            return route.component();
+            return route.component;
         }
     }
 }

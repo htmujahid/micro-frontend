@@ -1,10 +1,10 @@
-const { currentUrlPath } = require("./utils/url");
-import login from './pages/login';
-import register from './pages/register';
-import profile from './pages/profile';
-import orders from './pages/orders';
-import payments from './pages/payments';
-import security from './pages/security';
+import { currentUrlPath } from '../../core/utils';
+import * as login from './pages/login';
+import * as register from './pages/register';
+import * as profile from './pages/profile';
+import * as orders from './pages/orders';
+import * as payments from './pages/payments';
+import * as security from './pages/security';
 
 const routes = [
     {
@@ -36,7 +36,7 @@ const routes = [
 export default function init() {
     for (const route of routes) {
         if (route.path === currentUrlPath()) {
-            return route.component();
+            return route.component;
         }
     }
 }
