@@ -24,7 +24,7 @@
     "build:content": "cd content && npm run build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Talha Mujahid",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.1"
